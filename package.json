@@ -1,7 +1,7 @@
 {
   "name": "roaddata",
   "version": "0.0.1",
-  "description": "Worldwide roadtrip insights",
+  "description": "When are your customers travelling, where are they going, and how long are they staying - worldwide roadtrip data insights on a dashboard.",
   "productName": "Roaddata",
   "author": "Marco <marco.reisinger@t-online.de>",
   "private": true,

@@ -99,7 +99,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Meta'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -139,7 +139,8 @@ module.exports = configure(function (ctx) {
       manifest: {
         name: 'Roaddata',
         short_name: 'Roaddata',
-        description: '',
+        description:
+          'When are your customers travelling, where are they going, and how long are they staying - worldwide roadtrip data insights on a dashboard.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
