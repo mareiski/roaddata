@@ -53,6 +53,9 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
+      env: {
+        FIREBASE_KEY: process.env.FIREBASE_KEY,
+      },
       // transpile: false,
       // publicPath: '/',
 

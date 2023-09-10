@@ -26,22 +26,35 @@
         <div class="contact-form q-ml-lg q-mb-lg" style="max-width: 600px">
           <div class="row q-gutter-md justify-center">
             <div class="col-md-6 col-sm-12">
-              <q-input label="Full name" outlined="" :model-value="name">
+              <q-input
+                label="E-Mail Adress"
+                outlined
+                type="email"
+                :model-value="email"
+              >
                 <template v-slot:prepend>
-                  <q-icon name="person" />
+                  <q-icon name="mail" />
                 </template>
               </q-input>
             </div>
             <div class="col-md-6 col-sm-12 q-mb-lg">
-              <q-input label="E-Mail Adress" outlined :model-value="email">
+              <q-input
+                label="Password"
+                outlined
+                type="password"
+                :model-value="password"
+              >
                 <template v-slot:prepend>
-                  <q-icon name="person" />
+                  <q-icon name="password" />
                 </template>
               </q-input>
             </div>
             <div class="col-lg-12 q-mt-lg">
-              <q-btn color="primary" rounded size="lg"
+              <q-btn color="primary" rounded size="md"
                 >Request free trial</q-btn
+              >
+              <q-btn color="primary" rounded size="md"
+                >Request free trial with Google</q-btn
               >
             </div>
           </div>
@@ -65,6 +78,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { auth } from '../scripts/firebase';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth';
+import { Notify } from 'quasar';
 
 export default defineComponent({
   name: 'MainLayout',
@@ -73,6 +93,54 @@ export default defineComponent({
     setTimeout(() => {
       document.getElementById('preloader')?.remove();
     }, 1000);
+  },
+
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    signInWithGoogle() {
+      signInWithPopup(auth, new GoogleAuthProvider())
+        .then(() => {
+          Notify.create({
+            message: 'You have successfully registered for the trial.',
+            color: 'positive',
+            icon: 'check',
+          });
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorMessage = error.message;
+
+          Notify.create({
+            message: errorMessage,
+            color: 'negative',
+            icon: 'warning',
+          });
+        });
+    },
+    registerWithEmail() {
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then(() => {
+          Notify.create({
+            message: 'You have successfully registered for the trial.',
+            color: 'positive',
+            icon: 'check',
+          });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+
+          Notify.create({
+            message: errorMessage,
+            color: 'negative',
+            icon: 'warning',
+          });
+        });
+    },
   },
 });
 </script>
