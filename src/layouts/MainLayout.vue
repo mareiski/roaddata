@@ -81,6 +81,9 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="sub-footer">
+                <router-link class="q-mr-sm" to="/Privacy">Privacy</router-link>
+                <router-link class="q-mr-sm" to="/Imprint">Imprint</router-link>
+                <router-link to="/Disclaimer">Disclaimer</router-link>
                 <p>Copyright &copy; 2023 Roadtrip Insights | Roaddata</p>
               </div>
             </div>
