@@ -30,7 +30,7 @@
                 label="E-Mail Adress"
                 outlined
                 type="email"
-                :model-value="email"
+                v-model="email"
               >
                 <template v-slot:prepend>
                   <q-icon name="mail" />
@@ -42,19 +42,34 @@
                 label="Password"
                 outlined
                 type="password"
-                :model-value="password"
+                v-model="password"
+                hint="Will be used for your first login, after release."
               >
                 <template v-slot:prepend>
-                  <q-icon name="password" />
+                  <q-icon name="lock" />
                 </template>
               </q-input>
             </div>
+            <div class="col-md-6 col-sm-12 q-mb-lg">
+              <q-checkbox
+                v-model="agree"
+                label="I agree to the terms and conditions."
+              ></q-checkbox>
+            </div>
             <div class="col-lg-12 q-mt-lg">
-              <q-btn color="primary" rounded size="md"
+              <q-btn
+                color="primary"
+                rounded
+                size="md"
+                @click="registerWithEmail()"
                 >Request free trial</q-btn
-              >
-              <q-btn color="primary" rounded size="md"
-                >Request free trial with Google</q-btn
+              ><br /><br />
+              <q-btn
+                color="secondary"
+                @click="signInWithGoogle()"
+                rounded
+                size="md"
+                >Register with Google</q-btn
               >
             </div>
           </div>
@@ -99,6 +114,7 @@ export default defineComponent({
     return {
       email: '',
       password: '',
+      agree: false,
     };
   },
   methods: {
@@ -123,6 +139,24 @@ export default defineComponent({
         });
     },
     registerWithEmail() {
+      if (this.email === '' || this.password === '') {
+        Notify.create({
+          message: 'Please enter your email address and password.',
+          color: 'negative',
+          icon: 'warning',
+        });
+        return;
+      }
+
+      if (!this.agree) {
+        Notify.create({
+          message: 'Please agree to the terms and conditions.',
+          color: 'negative',
+          icon: 'warning',
+        });
+        return;
+      }
+
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
           Notify.create({

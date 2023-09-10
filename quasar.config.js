@@ -13,6 +13,8 @@
 const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (ctx) {
+  require('dotenv').config();
+
   return {
     // https://v2.quasar.dev/quasar-cli-webpack/supporting-ts
     supportTS: {
@@ -56,6 +58,7 @@ module.exports = configure(function (ctx) {
       env: {
         FIREBASE_KEY: process.env.FIREBASE_KEY,
       },
+
       // transpile: false,
       // publicPath: '/',
 
@@ -102,7 +105,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Meta'],
+      plugins: ['Meta', 'Notify'],
     },
 
     // animations: 'all', // --- includes all animations
