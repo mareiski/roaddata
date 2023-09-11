@@ -23,7 +23,11 @@
 
       <footer style="min-height: 750px" class="column justify-between">
         <!-- ***** Contact Form Start ***** -->
-        <div class="contact-form q-ml-lg q-mb-lg" style="max-width: 600px">
+        <div
+          id="TrialForm"
+          class="contact-form q-ml-lg q-mb-lg"
+          style="max-width: 600px"
+        >
           <div class="row q-gutter-md justify-center">
             <div class="col-md-6 col-sm-12">
               <q-input
@@ -84,7 +88,10 @@
                 <router-link class="q-mr-sm" to="/Privacy">Privacy</router-link>
                 <router-link class="q-mr-sm" to="/Imprint">Imprint</router-link>
                 <router-link to="/Disclaimer">Disclaimer</router-link>
-                <p>Copyright &copy; 2023 Roadtrip Insights | Roaddata</p>
+                <p>
+                  Copyright &copy; 2023 Roadtrip Insights | Roaddata | Travel
+                  Insights
+                </p>
               </div>
             </div>
           </div>

@@ -19,12 +19,12 @@ const metaData = {
     description: {
       name: 'description',
       content:
-        'When are your customers travelling, where are they going, and how long are they staying - worldwide roadtrip data insights on a dashboard.',
+        'When are your customers travelling, where are they going, and how long are they staying - travel and roadtrip data insights on a dashboard.',
     },
     keywords: {
       name: 'keywords',
       content:
-        'roadtrip insights, roadtrip data, trip data, travel trends, travel insights, travel dashboard',
+        'roadtrip insights, travel insights, roadtrip data, trip data, travel trends, travel dashboard',
     },
     equiv: {
       'http-equiv': 'Content-Type',

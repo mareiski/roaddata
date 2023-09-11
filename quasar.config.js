@@ -146,7 +146,7 @@ module.exports = configure(function (ctx) {
         name: 'Roaddata',
         short_name: 'Roaddata',
         description:
-          'When are your customers travelling, where are they going, and how long are they staying - worldwide roadtrip data insights on a dashboard.',
+          'When are your customers travelling, where are they going, and how long are they staying - travel and roadtrip data insights on a dashboard.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
