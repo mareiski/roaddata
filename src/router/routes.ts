@@ -12,11 +12,11 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '/Imprint',
-        component: () => import('pages/Legal/Impressum.vue'),
+        component: () => import('pages/legal/Impressum.vue'),
       },
       {
         path: '/Privacy',
-        component: () => import('pages/Legal/Datenschutz.vue'),
+        component: () => import('pages/legal/Datenschutz.vue'),
       },
       {
         path: '/Disclaimer',
